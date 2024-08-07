@@ -15,7 +15,7 @@
 
   <% if splat.categories.count < 3 %>
     <span class="splat__bubble splat__meta splat__category">
-      <turbo-frame id="new_catgory">
+      <turbo-frame id="new_category">
         <%= link_to "#", new_splat_category_path(splat), class: "splat__category--new" %>
       </turbo-frame>
     </span>
