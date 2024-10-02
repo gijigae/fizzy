@@ -2,7 +2,7 @@ class AssignmentsController < ApplicationController
   include BubbleScoped, BucketScoped
 
   def create
-    @bubble.assignments.create!(assignee: find_assignee)
+    @bubble.assignments.create!(assignee: find_assignee, assigner: Current.user)
     redirect_to bucket_bubble_url(@bucket, @bubble)
   end
 

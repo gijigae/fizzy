@@ -1,7 +1,9 @@
 logo_kevin:
+  assigner: david
   assignee: kevin
   bubble: logo
 
 layout_jz:
+  assigner: david
   assignee: jz
   bubble: layout
