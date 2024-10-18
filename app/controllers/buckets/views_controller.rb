@@ -20,7 +20,7 @@ class Buckets::ViewsController < ApplicationController
 
   private
     def set_view
-      @view = @bucket.views.find params[:id]
+      @view = @bucket.views.find_by creator: Current.user, id: params[:id]
     end
 
     def filter_params
