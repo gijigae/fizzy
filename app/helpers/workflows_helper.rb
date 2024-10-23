@@ -5,6 +5,7 @@ module WorkflowsHelper
 
   def button_to_set_stage(bubble, stage)
     button_to stage.name, bucket_bubble_stagings_path(bubble.bucket, bubble, stage_id: stage),
-      method: :post, class: [ "btn btn--small", { "fill-selected": stage == bubble.stage } ]
+      method: :post, class: [ "btn btn--small", { "fill-selected": stage == bubble.stage } ],
+      data: { turbo_frame: "_top" }
   end
 end
