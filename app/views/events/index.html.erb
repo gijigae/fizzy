@@ -18,19 +18,6 @@
 <% end %>
 
 <div id="activity" class="events__index flex flex-column gap">
-  <div class="center flex-inline align-center gap">
-      <button class="btn">
-        <span>All Projects</span>
-        <input type="checkbox" checked>
-      </button>
-      <span> or just </span>
-      <% Bucket.all.each do |bucket| %>
-        <button class="btn">
-          <span><%= bucket.name %></span>
-          <input type="checkbox">
-        </button>
-      <% end %>
-  </div>
   <%= render "events/day", activity_day: @activity_day, next_day: @next_day, events: @events %>
 </div>
 
