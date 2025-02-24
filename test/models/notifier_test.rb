@@ -13,12 +13,6 @@ class NotifierTest < ActiveSupport::TestCase
     end
   end
 
-  test "generate creates notifications for the event recipients" do
-    assert_difference -> { Notification.count }, +2 do
-      Notifier.for(events(:logo_published)).generate
-    end
-  end
-
   test "generate does not create notifications if the event was system-generated" do
     bubbles(:logo).drafted!
     events(:logo_published).update!(creator: accounts("37s").users.system)
@@ -26,5 +20,17 @@ class NotifierTest < ActiveSupport::TestCase
     assert_no_difference -> { Notification.count } do
       Notifier.for(events(:logo_published)).generate
     end
+  end
+
+  test "creates a notification for each watcher, other than the event creator" do
+    notifications = Notifier.for(events(:logo_published)).generate
+
+    assert_equal users(:kevin, :jz).sort, notifications.map(&:user).sort
+  end
+
+  test "links to the bubble" do
+    Notifier.for(events(:logo_published)).generate
+
+    assert_equal bubbles(:logo), Notification.last.resource
   end
 end
