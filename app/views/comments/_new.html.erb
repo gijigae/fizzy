@@ -2,9 +2,11 @@
   <div class="flex flex-column full-width">
     <div class="position-relative">
       <%= form_with model: Comment.new, url: bucket_bubble_comments_path(bubble.bucket, bubble), class: "flex flex-column gap full-width", 
-            data: { controller: "form paste", 
-                   action: "keydown.ctrl+enter->form#submit:prevent keydown.meta+enter->form#submit:prevent keydown.esc->form#cancel:stop paste->paste#pasteFiles" } do |form| %>
-        <%= form.markdown_area :body, class: "input comment__input", required: true, placeholder: new_comment_placeholder(bubble) %>
+            data: { controller: "form paste autosave",
+                   autosave_key_value: "comment-#{bubble.id}",
+                   action: "turbo:submit-end->autosave#submit keydown.ctrl+enter->form#submit:prevent keydown.meta+enter->form#submit:prevent keydown.esc->form#cancel:stop paste->paste#pasteFiles" } do |form| %>
+        <%= form.markdown_area :body, class: "input comment__input", required: true, placeholder: new_comment_placeholder(bubble),
+              data: { autosave_target: "input", action: "house-md:change->autosave#save" } %>
         <%= form.button class: "comment__submit btn btn--reversed flex-item-justify-end txt-small" do %>
           <%= image_tag "check.svg", aria: { hidden: "true" }, size: 24 %>
           <span class="for-screen-reader">Save</span>
