@@ -8,7 +8,4 @@ servers:
 
 proxy:
   hosts:
-    - fizzy.37signals.works # will return a 404 for now
-    - 37s.fizzy.37signals.works
-    - dev.fizzy.37signals.works
-    - qa.fizzy.37signals.works
+    - fizzy.37signals.works # the single tenant is named "fizzy"
