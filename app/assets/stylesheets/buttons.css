@@ -193,3 +193,20 @@
     }
   }
 }
+
+
+
+
+
+
+.btn-dialog {
+  .popup {
+    background-color: var(--bubble-color, var(--color-bg));
+    margin-top: var(--btn-size);
+  }
+
+  .popup__item {
+    --btn-background: var(--bubble-color);
+    --btn-color: var(--color-bg);
+  }
+}
