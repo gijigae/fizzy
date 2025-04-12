@@ -43,7 +43,7 @@ class CollectionsControllerTest < ActionDispatch::IntegrationTest
 
   test "update all access" do
     collection = Current.set(session: sessions(:kevin)) do
-      accounts("37s").collections.create! name: "New collection", all_access: false
+      Collection.create! name: "New collection", all_access: false
     end
     assert_equal [ users(:kevin) ], collection.users
 
@@ -51,7 +51,7 @@ class CollectionsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to cards_path(collection_ids: [ collection ])
     assert collection.reload.all_access?
-    assert_equal accounts("37s").users, collection.users
+    assert_equal User.all, collection.users
   end
 
   test "destroy" do

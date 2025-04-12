@@ -3,7 +3,7 @@ class Cards::StagingsController < ApplicationController
 
   def create
     if params[:stage_id].present?
-      @card.toggle_stage Current.account.stages.find(params[:stage_id])
+      @card.toggle_stage Stage.find(params[:stage_id])
     else
       @card.update!(stage: nil)
     end

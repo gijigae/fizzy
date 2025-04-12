@@ -2,11 +2,10 @@ Rails.application.routes.draw do
   resource :first_run
 
   resource :account do
-    scope module: :accounts do
-      resource :join_code
-      resources :users
-    end
+    resource :join_code, module: :accounts
   end
+
+  resources :users
 
   resources :collections do
     scope module: :collections do

@@ -3,7 +3,7 @@ require "test_helper"
 class FilterTest < ActiveSupport::TestCase
   test "cards" do
     Current.set session: sessions(:david) do
-      @new_collection = accounts("37s").collections.create! name: "Inaccessible Collection"
+      @new_collection = Collection.create! name: "Inaccessible Collection"
       @new_card = @new_collection.cards.create!
       @new_card.update!(stage: workflow_stages(:qa_triage))
 

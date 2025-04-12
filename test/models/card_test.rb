@@ -54,7 +54,7 @@ class CardTest < ActiveSupport::TestCase
     end
     assert cards(:logo).tagged_with?(tags(:web))
 
-    assert_difference %w[ cards(:logo).taggings.count accounts("37s").tags.count ], +1 do
+    assert_difference %w[ cards(:logo).taggings.count Tag.count ], +1 do
       cards(:logo).toggle_tag_with "prioritized"
     end
     assert_equal "prioritized", cards(:logo).taggings.last.tag.title
@@ -87,7 +87,7 @@ class CardTest < ActiveSupport::TestCase
   end
 
   test "in collection" do
-    new_collection = accounts("37s").collections.create! name: "New Collection", creator: users(:david)
+    new_collection = Collection.create! name: "New Collection", creator: users(:david)
     assert_equal cards(:logo, :shipping, :layout, :text), Card.in_collection(collections(:writebook))
     assert_empty Card.in_collection(new_collection)
   end

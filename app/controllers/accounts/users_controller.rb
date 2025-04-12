@@ -3,22 +3,22 @@ class Accounts::UsersController < ApplicationController
   before_action :ensure_permission_to_administer_user, only:  %i[ update destroy ]
 
   def index
-    @users = Current.account.users.active
+    @users = User.active
   end
 
   def update
     @user.update(role_params)
-    redirect_to account_users_path
+    redirect_to users_path
   end
 
   def destroy
     @user.deactivate
-    redirect_to account_users_path
+    redirect_to users_path
   end
 
   private
     def set_user
-      @user = Current.account.users.active.find(params[:id])
+      @user = User.active.find(params[:id])
     end
 
     def ensure_permission_to_administer_user

@@ -11,6 +11,6 @@ class Collections::WorkflowsController < ApplicationController
 
   private
     def set_workflow
-      @workflow = Current.account.workflows.find(params.expect(collection: [ :workflow_id ]).require(:workflow_id))
+      @workflow = Workflow.find(params.expect(collection: [ :workflow_id ]).require(:workflow_id))
     end
 end

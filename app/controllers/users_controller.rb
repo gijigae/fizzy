@@ -5,11 +5,11 @@ class UsersController < ApplicationController
   before_action :set_account_from_join_code, only: %i[ new create ]
 
   def new
-    @user = @account.users.build
+    @user = User.new
   end
 
   def create
-    user = @account.users.create!(user_params)
+    user = User.create!(user_params)
     start_new_session_for user
     redirect_to root_path
   end
@@ -21,8 +21,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update user_params
-    redirect_to user_path(@user)
+    @user.update! user_params
+    redirect_to @user
   end
 
   private
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     end
 
     def set_user
-      @user = Current.account.users.active.find(params[:id])
+      @user = User.active.find(params[:id])
     end
 
     def user_params

@@ -29,7 +29,7 @@ module EventsTimeline
     end
 
     def user_events
-      Event.where(card: user_cards, creator: Current.account.users)
+      Event.where(card: user_cards)
     end
 
     def user_cards
