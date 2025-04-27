@@ -34,6 +34,6 @@ module FiltersHelper
   def any_filters?(filter)
     filter.tags.any? || filter.assignees.any? || filter.creators.any? ||
       filter.stages.any? || filter.terms.any? ||
-      filter.assignment_status.unassigned? || !filter.default_indexed_by?
+      filter.assignment_status.unassigned?
   end
 end
