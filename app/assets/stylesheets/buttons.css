@@ -1,7 +1,7 @@
 @layer components {
   .btn {
     --transition: 150ms ease;
-    --btn-border-radius: 2em;
+    --btn-border-radius: 99rem;
 
     align-items: center;
     background-color: var(--btn-background, var(--color-canvas));
@@ -34,12 +34,12 @@
     }
 
     &:where(.avatar) {
-      --btn-border-radius: var(--avatar-border-radius);
+      /* --btn-border-radius: var(--avatar-border-radius); */
       --btn-padding: 0;
       --btn-border-size: 0;
       --hover-size: 0;
 
-      aspect-ratio: 1;
+      /* aspect-ratio: 1; */
       block-size: var(--btn-size);
       display: grid;
       inline-size: var(--btn-size);
@@ -134,23 +134,8 @@
     }
   }
 
-  /* Variants */
-  .btn--link {
-    --btn-background: var(--color-link);
-    --btn-color: var(--color-ink-inverted);
-    --outline-color: var(--color-link);
-  }
-
-  .btn--negative {
-    --btn-background: var(--color-negative);
-    --btn-color: var(--color-ink-inverted);
-    --outline-color: var(--color-negative);
-  }
-
-  .btn--placeholder {
-    pointer-events: none;
-    visibility: hidden;
-  }
+  /* Variants
+  /* ------------------------------------------------------------------------ */
 
   .btn--plain {
     --btn-background: transparent;
@@ -163,24 +148,25 @@
     --outline-size: 0;
   }
 
+  .btn--link {
+    --btn-background: var(--color-link);
+    --btn-border-color: var(--color-canvas);
+    --btn-color: var(--color-ink-inverted);
+    --outline-color: var(--color-link);
+  }
+
+  .btn--negative {
+    --btn-background: var(--color-negative);
+    --btn-border-color: var(--color-canvas);
+    --btn-color: var(--color-ink-inverted);
+    --outline-color: var(--color-negative);
+  }
+
   .btn--positive {
     --btn-background: var(--color-positive);
+    --btn-border-color: var(--color-canvas);
     --btn-color: var(--color-ink-inverted);
     --outline-color: var(--color-positive);
-  }
-
-  .btn--remove {
-    --btn-icon-size: 0.7em;
-  }
-
-  .btn--reversed {
-    --btn-background: var(--color-ink);
-    --btn-color: var(--color-canvas);
-    --outline-color: var(--color-ink);
-  }
-
-  :is(.btn--link, .btn--negative, .btn--positive, .btn--reversed) {
-    --btn-border-color: var(--color-canvas);
   }
 
   .btn--success {
@@ -191,6 +177,26 @@
       animation: zoom-fade 500ms var(--success-timing-function);
     }
   }
+
+  /* Fake button used to help space things out */
+  .btn--placeholder {
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .btn--remove {
+    --btn-icon-size: 0.7em;
+  }
+
+  .btn--reversed {
+    --btn-background: var(--color-ink);
+    --btn-border-color: var(--color-canvas);
+    --btn-color: var(--color-canvas);
+    --outline-color: var(--color-ink);
+  }
+
+  /* Button groups
+  /* ------------------------------------------------------------------------ */
 
   .btn__group {
     .btn {
