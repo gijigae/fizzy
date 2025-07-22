@@ -2,7 +2,7 @@
   <%= render "events/day_timeline/activity_summary", summary: day_timeline.summary %>
 
   <% if Current.user.staff? %>
-    <p><%= link_to "Prompt sandbox", admin_prompt_debug_path(day: day_timeline.day) %></p>
+    <p><%= link_to "Prompt sandbox", admin_prompt_sandbox_path(day: day_timeline.day) %></p>
   <% end %>
 <% else %>
   <div id="<%= day_timeline.summary_key %>">

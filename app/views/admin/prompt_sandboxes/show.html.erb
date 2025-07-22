@@ -1,7 +1,7 @@
 <div style="text-align: left;">
   <h1>Prompt Debug</h1>
 
-  <%= form_with url: admin_prompt_debug_path, method: :post do |form| %>
+  <%= form_with url: admin_prompt_sandbox_path, method: :post do |form| %>
     <div class="field">
       <%= form.label :prompt, "Prompt:" %>
       <%= form.text_area :prompt, value: @prompt, rows: 20, cols: 80, style: "width: 100%; font-family: monospace;" %>

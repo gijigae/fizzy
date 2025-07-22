@@ -141,7 +141,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resource :prompt_debug
+    resource :prompt_sandbox
   end
 
   direct :published_collection do |collection, options|
