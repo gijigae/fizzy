@@ -1,8 +1,12 @@
 require "test_helper"
 
 class Events::ActivitySummariesControllerTest < ActionDispatch::IntegrationTest
+  include VcrTestHelper
+
   setup do
     sign_in_as :kevin
+
+    freeze_timestamps
   end
 
   test "create" do

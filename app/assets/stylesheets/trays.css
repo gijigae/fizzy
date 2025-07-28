@@ -118,8 +118,8 @@
 
   .tray__toggle-btn {
     --btn-background: transparent;
-    --btn-border-color: var(--color-white);
-    --btn-color: var(--color-white);
+    --btn-border-color: var(--color-ink);
+    --btn-color: var(--color-ink);
 
     border-style: dashed;
     border-radius: 1ch;

@@ -346,7 +346,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 24 Jul 2025 14:41:36 GMT
+      - Fri, 25 Jul 2025 15:05:43 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -358,13 +358,13 @@ http_interactions:
       Openai-Organization:
       - 37signals-u7qhwk
       Openai-Processing-Ms:
-      - '301'
+      - '336'
       Openai-Project:
       - proj_M0FFIqFFeNEpzhhgv64oFzt1
       Openai-Version:
       - '2020-10-01'
       X-Envoy-Upstream-Service-Time:
-      - '306'
+      - '342'
       X-Ratelimit-Limit-Requests:
       - '5000'
       X-Ratelimit-Limit-Tokens:
@@ -378,31 +378,31 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 259ms
       X-Request-Id:
-      - req_c5d0212b4a30b16cf2f2c11f355dd4ae
+      - req_57674519d5e0c7c574c44c1e694f6803
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=xKR5YivNAsu372T_vWXbnpQ9_rjYtSC1PAbJFo1XCa4-1753368096-1.0.1.1-LbTH8QLtuC1YxB9WttSyITuK1Q7QAqQnUyts35USIim70D8RFr9Z_6.92Dkw5WQznOuLs9DxPEoNLeWpFKhko5MAu3bhDoMJMBowtLSAgoM;
-        path=/; expires=Thu, 24-Jul-25 15:11:36 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=HDQ9tm4KGGxNOyGMecdT3uaf4Poh1nZ6HtPhAeL8OZE-1753455943-1.0.1.1-u94ssWtZWYjOb9cp1E7rewCvH7sDRyiUaxf7i7f5k3Js.9kXvrMzueVl3Al8qhgui9wnzjEmYMUiGy5e7fN1y4t5i4IzKx1mzwQcALXuxmg;
+        path=/; expires=Fri, 25-Jul-25 15:35:43 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=jbeK_sLRZvPAiysKBJcmOLRmFa7c4xZIMHBoh0ulPhs-1753368096217-0.0.1.1-604800000;
+      - _cfuvid=FUk1X3KUj_KaCwrqQ0cBF_2XBU5mUbPvyC4iLazrkt8-1753455943726-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 96442de5ae92cc41-MAD
+      - 964c8e9d5b3ee7d7-DFW
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        ewogICJpZCI6ICJjaGF0Y21wbC1Cd3JRVlZrYjl2THFzb09UMXB0UElybTdh
-        bmNZQyIsCiAgIm9iamVjdCI6ICJjaGF0LmNvbXBsZXRpb24iLAogICJjcmVh
-        dGVkIjogMTc1MzM2ODA5NSwKICAibW9kZWwiOiAiZ3B0LTQuMS0yMDI1LTA0
+        ewogICJpZCI6ICJjaGF0Y21wbC1CeEVIUFZtUjIzeFJDMU10dzVjQklma1Fy
+        WEN2VCIsCiAgIm9iamVjdCI6ICJjaGF0LmNvbXBsZXRpb24iLAogICJjcmVh
+        dGVkIjogMTc1MzQ1NTk0MywKICAibW9kZWwiOiAiZ3B0LTQuMS0yMDI1LTA0
         LTE0IiwKICAiY2hvaWNlcyI6IFsKICAgIHsKICAgICAgImluZGV4IjogMCwK
         ICAgICAgIm1lc3NhZ2UiOiB7CiAgICAgICAgInJvbGUiOiAiYXNzaXN0YW50
         IiwKICAgICAgICAiY29udGVudCI6ICJ7IFwiY29tbWFuZHNcIjogW1wiL3Nl
