@@ -4,18 +4,20 @@
 
 <% if blob.video? %>
   <%= tag.video \
-            src: rails_blob_path(blob),
-            controls: true,
-            preload: :none,
-            style: "aspect-ratio: #{width} / #{height};",
-            width: width,
-            height: height %>
+        src: rails_blob_path(blob),
+        controls: true,
+        preload: :none,
+        style: "aspect-ratio: #{width} / #{height};",
+        width: width,
+        height: height %>
 <% elsif blob.audio? %>
   <audio controls="true" width="100%" preload="metadata">
     <source src="<%= rails_blob_url(blob) %>" type="<%= blob.content_type %>">
   </audio>
 <% elsif blob.variable? %>
-  <%= image_tag url_for(blob.variant(variant)), width: width, height: height %>
+  <%= link_to url_for(blob.variant(variant)), data: { action: "lightbox#open:prevent", lightbox_target: "image" } do %>
+    <%= image_tag url_for(blob.variant(variant)), width: width, height: height %>
+  <% end %>
 <% elsif blob.previewable? %>
   <%= image_tag url_for(blob.preview(variant)), width: width, height: height %>
 <% else %>
