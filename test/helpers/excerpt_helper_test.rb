@@ -26,5 +26,6 @@ class ExcerptHelperTest < ActionView::TestCase
   private
     def assert_excerpt(expected, content, ...)
       assert_equal expected, format_excerpt(ActionText::Content.new(content), ...), "Excerpt of Action Text Content does not match"
+      assert_equal expected, format_excerpt(content, ...), "Excerpt of String does not match"
     end
 end
