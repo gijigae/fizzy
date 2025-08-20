@@ -25,6 +25,13 @@
     max-inline-size: 100%;
     padding-inline: var(--reserved-bubble-space);
     position: relative;
+    transition: 300ms ease-in-out;
+
+    &:not(:has(.cards--on-deck .card)):not(:has(.drag-and-drop__dragged-item)) {
+      @media (min-width: 640px) {
+        grid-template-columns: 46% 1fr 46%;
+      }
+    }
 
     &:before {
       background: var(--gradient-border);
@@ -249,6 +256,13 @@
         inset: 0 0 auto;
         position: absolute;
       }
+    }
+
+    .card {
+      &:nth-child(1n) { rotate: -1deg; }
+      &:nth-child(2n) { rotate: 1deg; }
+      &:nth-child(3n) { rotate: -0.5deg; }
+      &:nth-child(4n) { rotate: 0.5deg; }
     }
   }
 
