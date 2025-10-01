@@ -45,6 +45,7 @@
   .icon--crown { --svg: url("crown.svg "); }
   .icon--email { --svg: url("email.svg "); }
   .icon--everyone { --svg: url("everyone.svg "); }
+  .icon--external-link { --svg: url("external-link.svg "); }
   .icon--gear { --svg: url("gear.svg "); }
   .icon--filter { --svg: url("filter.svg "); }
   .icon--globe { --svg: url("globe.svg "); }
