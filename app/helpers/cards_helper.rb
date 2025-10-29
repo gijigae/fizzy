@@ -40,4 +40,10 @@ module CardsHelper
     tag.meta(property: "og:image", content: @card.image.attached? ? "#{request.base_url}#{url_for(@card.image)}" : "#{request.base_url}/app-icon.png") +
     tag.meta(property: "og:url", content: card_url(@card))
   end
+
+  def button_to_remove_card_image(card)
+    button_to(card_image_path(card), method: :delete, class: "btn", data: { controller: "tooltip" }) do
+      icon_tag("trash") + tag.span("Remove background image", class: "for-screen-reader")
+    end
+  end
 end
