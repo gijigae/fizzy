@@ -2,6 +2,7 @@ require_relative "../../config/environment"
 
 CARDS_COUNT = 10_000
 
+# 37signals seed
 ApplicationRecord.current_tenant = "897362094"
 account = Account.sole
 user = User.first
