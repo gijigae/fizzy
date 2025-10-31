@@ -11,7 +11,7 @@ class Account < ApplicationRecord
     end
   end
 
-  # This lets us use the account as a generic card container. See +Entropy::Configuration+.
+  # This use the account as a generic card container. See +Entropy::Configuration+.
   def cards
     Card.all
   end
