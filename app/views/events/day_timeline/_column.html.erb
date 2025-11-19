@@ -1,5 +1,14 @@
 <div class="events__column">
-  <h3 class="events__column-header"><%= column.title %></h3>
+  <h3 class="events__column-header">
+    <%= column.title %>
+
+    <% if column.events_by_hour.any? %>
+      <%= link_to events_day_timeline_column_path(id: column.index, day: column.day_timeline.day.iso8601), class: "events__maximize-button btn btn--circle txt-x-small borderless" do %>
+        <%= icon_tag "grid", class: "translucent" %>
+        <span class="for-screen-reader">Expand column</span>
+      <% end %>
+    <% end %>
+  </h3>
   <% column.events_by_hour.each do |hour, events| %>
     <%= events_at_hour_container(column, hour) do %>
       <%= render partial: "events/event", collection: events, cached: true %>

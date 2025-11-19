@@ -130,6 +130,9 @@ Rails.application.routes.draw do
   resources :events, only: :index
   namespace :events do
     resources :days
+    namespace :day_timeline do
+      resources :columns, only: :show
+    end
   end
 
   resources :qr_codes

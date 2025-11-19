@@ -1,7 +1,7 @@
 class User::DayTimeline::Column
   include ActionView::Helpers::TagHelper, ActionView::Helpers::OutputSafetyHelper, TimeHelper
 
-  attr_reader :index
+  attr_reader :index, :base_title, :day_timeline, :events
 
   def initialize(day_timeline, base_title, index, events)
     @day_timeline = day_timeline
@@ -30,8 +30,6 @@ class User::DayTimeline::Column
   end
 
   private
-    attr_reader :base_title, :day_timeline, :events
-
     def limited_events
       @limited_events ||= events.limit(100).load
     end
