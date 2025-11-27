@@ -1,5 +1,6 @@
 require_relative "metrics"
 require_relative "transaction_pinning"
+require_relative "signup"
 
 module Fizzy
   module Saas
@@ -50,6 +51,8 @@ module Fizzy
       end
 
       config.to_prepare do
+        ::Signup.prepend(Fizzy::Saas::Signup)
+
         Queenbee::Subscription.short_names = Subscription::SHORT_NAMES
 
         # Default to local dev QB token if not set
