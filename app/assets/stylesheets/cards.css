@@ -150,18 +150,29 @@
     color: var(--card-content-color);
     font-size: var(--text-xx-large);
     font-weight: 900;
-    line-height: 1.3;
-    /* We need a minimum line-height of 1.3 to avoid scrolling
-      in the card title input and cut-off descenders on Windows */
+    line-height: 1.15;
+    margin-block-end: 1ch;
     text-wrap: balance;
 
-    @supports not (field-sizing: content) {
-      &:has(textarea) {
+    /* With tight line spacing, Windows will cover over adjacent lines of text
+     * when input text is selected. Here, we're setting the selection color to a
+     * transparent value so the overlapping text lines are at least visible. */
+    ::selection {
+      background: oklch(var(--lch-blue-light) / 0.5);
+    }
+
+    &:has(textarea) {
+      margin-block-end: 0;
+
+      @supports not (field-sizing: content) {
         text-wrap: unset; /* Safari is annoying if you have text-wrap: balance in textareas */
       }
     }
 
     .card-field__title {
+      overflow: hidden; /* prevent scrolling on windows */
+      padding-block-end: 1ch;
+
       &:is(textarea)::placeholder {
         color: inherit;
         opacity: 0.66;
@@ -366,7 +377,6 @@
     color: var(--stamp-color);
     font-size: 1.3em;
     font-weight: 900;
-    line-height: 1.2;
     position: relative;
     text-align: center;
     text-transform: uppercase;
