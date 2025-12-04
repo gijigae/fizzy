@@ -92,4 +92,12 @@ class HtmlHelperTest < ActionView::TestCase
       %(<p><a href="obsidian://open?vault=notes&amp;file=test">obsidian://open?vault=notes&amp;file=test</a></p>),
       format_html(%(<p><a>obsidian://open?vault=notes&file=test</a></p>))
   end
+
+  test "handle HTTP URLs containing obsidian:// in query parameters without corruption" do
+    # Regression test: sequential gsub! calls should not corrupt HTML when
+    # one URL type contains another in query parameters
+    assert_equal_html \
+      %(<p><a href="https://example.com?redirect=obsidian://vault/note" rel="noreferrer">https://example.com?redirect=obsidian://vault/note</a></p>),
+      format_html("<p>https://example.com?redirect=obsidian://vault/note</p>")
+  end
 end
