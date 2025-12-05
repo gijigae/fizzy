@@ -10,7 +10,19 @@ export default class extends Controller {
 
   initialize() {
     this.debouncedSubmit = debounce(this.debouncedSubmit.bind(this), this.debounceTimeoutValue)
+    this.#isComposing = false
   }
+
+  // IME Composition tracking
+  compositionStart() {
+    this.#isComposing = true
+  }
+
+  compositionEnd() {
+    this.#isComposing = false
+  }
+
+  #isComposing = false
 
   submit() {
     this.element.requestSubmit()
@@ -24,6 +36,12 @@ export default class extends Controller {
       if (value.length === 0) {
         event.preventDefault()
       }
+    }
+  }
+
+  preventComposingSubmit(event) {
+    if (this.#isComposing) {
+      event.preventDefault()
     }
   }
 
