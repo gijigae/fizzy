@@ -10,7 +10,6 @@ export default class extends Controller {
 
   initialize() {
     this.debouncedSubmit = debounce(this.debouncedSubmit.bind(this), this.debounceTimeoutValue)
-    this.#isComposing = false
   }
 
   // IME Composition tracking
