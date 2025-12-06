@@ -8,6 +8,8 @@ export default class extends Controller {
     debounceTimeout: { type: Number, default: 300 }
   }
 
+  #isComposing = false
+
   initialize() {
     this.debouncedSubmit = debounce(this.debouncedSubmit.bind(this), this.debounceTimeoutValue)
   }
@@ -20,8 +22,6 @@ export default class extends Controller {
   compositionEnd() {
     this.#isComposing = false
   }
-
-  #isComposing = false
 
   submit() {
     this.element.requestSubmit()
