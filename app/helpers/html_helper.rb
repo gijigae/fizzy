@@ -10,12 +10,12 @@ module HtmlHelper
 
   private
     EXCLUDED_ELEMENTS = %w[ a figcaption pre code ]
-    EMAIL_REGEXP = /\b[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\b/
-    HTTP_URL_REGEXP = URI::DEFAULT_PARSER.make_regexp(%w[http https])
+    EMAIL_AUTOLINK_REGEXP = /\b[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\b/
+    URL_REGEXP = URI::DEFAULT_PARSER.make_regexp(%w[http https])
     OBSIDIAN_URL_REGEXP = /obsidian:\/\/[^\s<>"]+/
     # Combined regex to match all URL types in a single pass to avoid corrupting HTML
     # when one URL type contains another (e.g., https://example.com?redirect=obsidian://...)
-    COMBINED_URL_REGEXP = Regexp.union(HTTP_URL_REGEXP, OBSIDIAN_URL_REGEXP)
+    COMBINED_URL_REGEXP = Regexp.union(URL_REGEXP, OBSIDIAN_URL_REGEXP)
 
     def auto_link(fragment)
       fragment.traverse do |node|
@@ -57,7 +57,7 @@ module HtmlHelper
     end
 
     def auto_link_emails(text)
-      text.gsub!(EMAIL_REGEXP) do |match|
+      text.gsub!(EMAIL_AUTOLINK_REGEXP) do |match|
         %(<a href="mailto:#{match}">#{match}</a>)
       end
     end
