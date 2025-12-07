@@ -41,5 +41,5 @@
 
 /config/credentials/*.key
 .DS_Store
-.cursor
-.playwright-mcp
+.cursor/
+.playwright-mcp/
