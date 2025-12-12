@@ -32,7 +32,7 @@ export default class extends Controller {
   }
 
   toggle({ target }) {
-    const column = target.closest('[data-collapsible-columns-target="column"]')
+    const column = target.closest('[data-collapsible-columns-target~="column"]')
     this.#toggleColumn(column);
   }
 
