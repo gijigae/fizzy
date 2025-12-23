@@ -299,6 +299,19 @@
     }
   }
 
+  .card-perma__notch-new-card-buttons {
+    display: flex;
+    gap: var(--inline-space-half);
+
+    @media (max-width: 479px) {
+      flex-direction: column;
+
+      .btn {
+        inline-size: 100%;
+      }
+    }
+  }
+
   .card-perma__closure-message {
     color: var(--card-color);
   }

@@ -1,4 +1,4 @@
-@layer reset, base, components, modules, utilities;
+@layer reset, base, components, modules, utilities, native, platform;
 
 :root {
   /* Spacing */
@@ -79,6 +79,7 @@
   --z-tooltip: 50;
   --z-bar: 60;
   --z-tray: 61;
+  --z-welcome: 62;
 
   /* OKLCH colors: Fixed */
   --lch-black: 0% 0 0;
