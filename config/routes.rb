@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "events#index"
 
   namespace :account do
+    resource :cancellation, only: [ :create ]
     resource :entropy
     resource :join_code
     resource :settings
@@ -86,6 +87,7 @@ Rails.application.routes.draw do
       resource :reading
 
       resources :assignments
+      resource :self_assignment, only: :create
       resources :steps
       resources :taggings
 
