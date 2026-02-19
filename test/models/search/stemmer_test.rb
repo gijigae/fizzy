@@ -12,4 +12,10 @@ class Search::StemmerTest < ActiveSupport::TestCase
 
     assert_equal "test run jump walk", result
   end
+
+  test "stem hyphenated words" do
+    result = Search::Stemmer.stem("BC3-IOS-1D8B")
+
+    assert_equal "bc3 io 1d8b", result
+  end
 end
