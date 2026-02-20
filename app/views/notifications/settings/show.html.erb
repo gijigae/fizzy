@@ -6,7 +6,7 @@
 
 <section class="settings margin-block-start-half">
   <div class="settings__panel settings__panel--users panel shadow">
-    <section class="settings__section settings__section--users">
+    <section class="settings__section">
       <h2 class="divider">Boards</h2>
       <div class="settings__scrollable-list flex flex-column gap-half">
         <%= render partial: "notifications/settings/board", collection: @boards, locals: { user: Current.user } %>
